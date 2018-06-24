@@ -28,7 +28,7 @@ echo "Done."
 
 echo
 echo "Creating Server certificate..."
-CN="localhost"
+CN="openshift"
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:$KEY_BITS -out $SERVER_KEY
 openssl req -new -key $SERVER_KEY -subj "/CN=$CN/O=$ORG" -out $SERVER_CSR
 openssl x509 -days $VALID_DAYS -req -in $SERVER_CSR -CAcreateserial -CA $CA_CERT -CAkey $CA_KEY -out $SERVER_CERT
@@ -130,4 +130,3 @@ echo "Done."
 echo
 echo "----- Don't forget to import your ca.crt and client .p12 certificates into your browser -----"
 echo
-
