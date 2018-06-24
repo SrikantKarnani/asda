@@ -13,6 +13,7 @@ const httpsOptions = {
     cert : fs.readFileSync(path.join(__dirname , 'server.crt')),
     key : fs.readFileSync(path.join(__dirname , 'server.key'))
 }
-https.createServer(httpsOptions, app).listen(port, ip);
+// https.createServer(httpsOptions, app).listen(port, ip);
+app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 module.exports = app;
