@@ -11,4 +11,5 @@ const httpsOptions = {
     cert : fs.readFileSync(path.join(__dirname , 'server.crt')),
     key : fs.readFileSync(path.join(__dirname , 'server.key'))
 }
-https.createServer(httpsOptions,app).listen(process.env.PORT || 3000,()=>console.log("Server Started"));
+https.createServer(httpsOptions,app).listen(
+    process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,()=>console.log("Server Started"));
